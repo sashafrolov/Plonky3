@@ -158,6 +158,14 @@ impl<F: Clone + Send + Sync, W: Clone, M: Matrix<F>, const DIGEST_ELEMS: usize>
     {
         self.digest_layers.last().unwrap()[0].into()
     }
+
+    /// Returns a reference to all intermediate digest layers.
+    ///
+    /// Layer 0 is the first layer above the leaves; the last layer contains a
+    /// single root digest.
+    pub fn digest_layers(&self) -> &[Vec<[W; DIGEST_ELEMS]>] {
+        &self.digest_layers
+    }
 }
 
 /// Hash every row of the tallest matrices and build the first digest layer.
