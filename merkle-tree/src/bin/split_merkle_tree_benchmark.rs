@@ -1,4 +1,3 @@
-//! Simple example demonstrating building a BabyBear Merkle tree with Poseidon2 hash
 //! Based on https://github.com/Plonky3/Plonky3/blob/main/merkle-tree/benches/merkle_tree.rs
 
 use p3_baby_bear::{BabyBear, default_babybear_poseidon2_16};
@@ -156,7 +155,7 @@ fn main() {
             // Read the opened row directly from the matrix
             let opened_values: Vec<Vec<F>> = vec![matrix.row(row_to_open).unwrap().into_iter().collect()];
             // Rebuild subtree
-            let (chunk_commitment, chunk_prover_data) = mmcs.commit(vec![chunk]);
+            let (_chunk_commitment, chunk_prover_data) = mmcs.commit(vec![chunk]);
 
             // Generate inclusion proof within the chunk sub-tree
             let index_in_chunk = row_to_open - chunk_start_index;

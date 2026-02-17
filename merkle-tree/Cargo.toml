@@ -25,7 +25,10 @@ tracing.workspace = true
 p3-baby-bear.workspace = true
 
 [[bin]]
-name = "merkle_tree_benchmark"
+name = "split_merkle_tree_benchmark"
+
+[[bin]]
+name = "large_leaf_merkle_tree_benchmark"
 
 [dev-dependencies]
 p3-blake3 = { path = "../blake3" }
